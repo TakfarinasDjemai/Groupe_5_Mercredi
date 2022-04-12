@@ -8,5 +8,9 @@ namespace Groupe_5_Mercredi
 {
     internal class Notes
     {
+        //Chaque étudiant est identifié par:
+        //-Numéro d'étudiant
+        //-Numéro du cours
+        //-Note
     }
 }
