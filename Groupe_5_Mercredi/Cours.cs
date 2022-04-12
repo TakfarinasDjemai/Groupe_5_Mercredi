@@ -8,5 +8,10 @@ namespace Groupe_5_Mercredi
 {
     internal class Cours
     {
+        //Chaque étudiant est identifié par:
+        //-Numéro du cours
+        //-Code
+        //-Titre
+
     }
 }
