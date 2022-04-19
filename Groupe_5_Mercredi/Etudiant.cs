@@ -4,48 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PojetFinalAssurancelogiciel
+namespace Groupe_5_Mercredi
 {
-    internal abstract class Etudiant 
+    internal class Etudiant
     {
-        
-        public int NumeroEtudiant { get; private set ;} 
-        public string Nom { get; set ;} 
-        public string Prenom { get; set ;} 
-
-        public Etudiant(int numeroEtudiant, string nom, string prenom) :
-         
-        {
-            NumeroCour = numeroEtudiant;
-            Nom = nom;
-            Prenom = prenom;
-        }
-         //Redéfinir la méthode Equals.
-        public override bool Equals(object obj)
-        {
-            if (obj == null) return false;
-            if (obj.GetType() != typeof(Etudiant)) return false;
-            Etudiant other = (Etudiant)obj; //operationn de Conversion / Cast (as)
-            return base.Equals(obj) &&
-                 Nom == other.Nom &&
-                Prenom == other.Prenom;
-        }
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-        //6- Redéfinir la méthode ToString.
-        public override string ToString()
-        {
-            
-               return $"Student's nom : {Nom}" + "\n"+
-                $"Student's Prenom : {Prenom}" + "\n" ;
-        }
+        //Chaque étudiant est identifié par:
+        //- Numéro d'étudiant
+        public int NumeroEtudiant { get; set; }
+        //- Nom
+        public string NomEtudiant { get; set; }
+        //-Prénom
+        public string PrenomEtudiant { get; set; }
 
 
-     
+        //Constructeur 
+        public Etudiant(int NumeroEtudiant, string NomEtudiant, string PrenomEtudiant)
+        {
+            this.NumeroEtudiant = NumeroEtudiant;
+            this.NomEtudiant = NomEtudiant;
+            this.PrenomEtudiant = PrenomEtudiant;
+        }
+        public string ToString()
+        {
+            return $"Numero de Etudiant: {this.NumeroEtudiant} \n" +
+                $"Nom de Etudiant: {this.NomEtudiant} \n" +
+                $"Prenom de Etudiant: {this.PrenomEtudiant}";
+        }
 
-        
-        
+        // Egalite
+        public bool Egalite(Etudiant e)
+        {
+            return e.NumeroEtudiant == this.NumeroEtudiant && e.NomEtudiant == this.NomEtudiant &&
+                e.PrenomEtudiant == this.PrenomEtudiant;
+        }
     }
 }
