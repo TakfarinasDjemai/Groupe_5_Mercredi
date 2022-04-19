@@ -36,14 +36,5 @@ namespace Groupe_5_Mercredi
                 c.Titre== this.Titre;
         }
 
-
-
-
-
-
-
-
-
-
     }
 }
