@@ -57,8 +57,6 @@ namespace Groupe_5_Mercredi
             return null;
         }
 
-
-
         public bool Egalite(Notes n)
         {
             return n.NumeroEtudiant == this.NumeroEtudiant && n.NumeroCour == this.NumeroCour &&
