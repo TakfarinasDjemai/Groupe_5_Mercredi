@@ -9,17 +9,17 @@ namespace Groupe_5_Mercredi
     internal class Cours {
         public static int nb=0;
         public int NumeroCour { get; set ;} 
-        public int Code { get;private set} 
-        public string Titre { get; set} 
+        public int Code { get; private set;} 
+        public string Titre { get; set;} 
 
-        public Cours(int numeroCour, int code, string titre) { 
+        public Cours(int numeroCour, string titre) { 
        
        `    this.NumeroCour = numeroCour;
             this.Code = ++nb;
             this.Titre = titre;
         }
         
-        public  string ToString(){               
+        public string ToString(){               
            return $"Numero de Cour  :{this.NumeroCour} " + "\n" +
             $"Titre de Cour : {this.Titre} " + "\n" +
             $" Code de Cour: {this.Code}";
