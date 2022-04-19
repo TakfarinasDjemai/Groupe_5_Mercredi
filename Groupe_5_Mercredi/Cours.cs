@@ -4,50 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PojetFinalAssurancelogiciel
+namespace Groupe_5_Mercredi
 {
-    internal class Cours : Etudiant
-    {
-        public int NumeroCour { get; private set ;} 
-        public int Code { get; set} 
+    internal class Cours
+        public static int nb=0;
+        public int NumeroCour { get; set ;} 
+        public int Code { get;private set} 
         public string Titre { get; set} 
 
-        public Cours(int numeroEtudiant, string nom, string prenom,int numeroCour, int code, string titre) :
-            base(numeroEtudiant,nom,prenom)
-
-        {
-            NumeroCour = numeroCour;
-            Code = code;
-            Titre = titre;
+        public Cours(int numeroCour, int code, string titre) { 
+       
+       `    this.NumeroCour = numeroCour;
+            this.Code = ++nb;
+            this.Titre = titre;
 
         }
        
 
-        //Redéfinir la méthode Equals.
-        public override bool Equals(object obj)
-        {
-            if (obj == null) return false;
-            if (!(obj is Cours)) return false;
-            Cours other = (Cours)obj; //OPERATION DE CONVERSION
-            return base.Equals(obj) &&
-                NumeroCour == other.NumeroCour &&
-                Code == other.Code &&
-                Titre == other.Titre;
-
-
-        }
-        
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
         //redifinir la methode TosTRING
-        public override string ToString()
-        {
-            return base.ToString() + "\n" +                
-            $"Cour titre : {Titre} " + "\n" +
-                   $" Cour code: {Code}";
+        public  string ToString()
+        {               
+            $"Numero de Cour  :{this.NumeroCour} " + "\n" +
+            $"Titre de Cour : {this.Titre} " + "\n" +
+            $" Code de Cour: {this.Code}";
         }
+        // Egalite
+        public bool Egalite(Cours c)
+        {
+            return c.NumeroCour == this.NumeroCour &&
+            c.Code == this.Codet &&
+                c.Titre== this.Titre;
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }
