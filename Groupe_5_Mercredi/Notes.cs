@@ -4,38 +4,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PojetFinalAssurancelogiciel
+namespace Groupe_5_Mercredi
 {
-    internal class Notes : Etudiant
+    internal class Notes
     {
-        //public int NumeroEtudiant { get; set; }
-        //public int NumeroCour { get; set; }
-        public double Note { get; set; }
+        //Chaque étudiant est identifié par:
+        //-Numéro d'étudiant
+        public List<Etudiant> Etudiants { get; set; } = new List<Etudiant>();
+        public int NumeroEtudiant { get; set; }
+        //-Numéro du cours
+        public List<Cours> Cour { get; set; } = new List<Cours>();
+        public int NumeroCour { get; set; }
+        //-Note
+        public int Note { get; set; }
 
 
-         public Notes(int numeroEtudiant, string nom, string prenom,int numeroCour, int code, string titre, double note) :
-            base(numeroEtudiant,nom,prenom,numeroCour,code,titre)
+
+        //-Constructeur
+        public Notes(int NumeroEtudiant, int NumeroCour, int Note)
         {
-            Note = note;
+            this.NumeroEtudiant = NumeroEtudiant;
+            this.NumeroCour = NumeroCour;
+            this.Note = Note;
         }
 
-        public override bool Equals(object obj)
+
+
+        public void AjouterEtudiant(Etudiant e)
         {
-            if (obj == null) return false;
-            if (!(obj is Cube)) return false;
-            Notes other = (Notes)obj; //OPERATION DE CONVERSION
-            return base.Equals(obj) &&
-                Note == other.Note;
+            Etudiants.Add(e);
         }
-        public override int GetHashCode()
+
+
+
+        public void AjouterCours(Cours c)
         {
-            return base.GetHashCode();
+            Cour.Add(c);
         }
-        //6- Doit-on redéfinir la méthode ToString?
-        public override string ToString()
+
+
+
+        public string ToString()
         {
-            return base.ToString() + "\n" +
-                $"Note : {Note}";
+            int x = this.NumeroEtudiant;
+            int y = this.NumeroCour;
+            foreach (Cours c in Cour)
+                if (c.NumeroCour == y)
+                    foreach (Etudiant e in Etudiants)
+                        if (e.NumeroEtudiant == x) return $"Note: {this.Note} \n" +
+                                        e.ToString() + "\n" +
+                                        c.ToString();
+            return null;
+        }
+
+
+
+        public bool Egalite(Notes n)
+        {
+            return n.NumeroEtudiant == this.NumeroEtudiant && n.NumeroCour == this.NumeroCour &&
+                n.Note == this.Note;
         }
     }
 }
