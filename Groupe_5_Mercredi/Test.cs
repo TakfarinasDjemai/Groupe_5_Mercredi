@@ -44,7 +44,7 @@ namespace Groupe_5_Mercredi
             Console.WriteLine(n2.ToString());
             Console.WriteLine("******************************");
             Console.WriteLine(n2 == n1);
-
+    
         }
     }
 }
