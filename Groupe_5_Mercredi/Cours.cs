@@ -14,7 +14,7 @@ namespace Groupe_5_Mercredi
 
         public Cours(int numeroCour, string titre) { 
        
-       `    this.NumeroCour = numeroCour;
+            this.NumeroCour = numeroCour;
             this.Code = ++nb;
             this.Titre = titre;
         }
