@@ -29,7 +29,7 @@ namespace Groupe_5_Mercredi
             Console.WriteLine("******************************");
             Console.WriteLine(c2 == c1);
             Console.WriteLine("******************************");
-    
+        
 
             Notes n1 = new Notes(2699880, 20304, 32);
             Notes n2 = new Notes(2832043, 32942, 24);
