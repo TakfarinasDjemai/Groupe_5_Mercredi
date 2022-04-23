@@ -49,11 +49,24 @@ namespace Groupe_5_Mercredi
             int x = this.NumeroEtudiant;
             int y = this.NumeroCour;
             foreach (Cours c in Cour)
-                if (c.NumeroCour == y)
-                    foreach (Etudiant e in Etudiants)
-                        if (e.NumeroEtudiant == x) return $"Note: {this.Note} \n" +
+            {   foreach (Etudiant e in Etudiants)
+                    { if (c.NumeroCour == y && e.NumeroEtudiant == x)
+                        {   return $"Note: {this.Note} \n" +
                                         e.ToString() + "\n" +
                                         c.ToString();
+                        }        
+                       else if (e.NumeroEtudiant == x)
+                       {
+                          return $"Note: {this.Note} \n" +
+                                        e.ToString();
+                       }
+                      else if(c.NumeroCour == y)
+                      {
+                          return $"Note: {this.Note} \n" +
+                                        c.ToString();
+                      }
+                    }
+            }
             return null;
         }
 
